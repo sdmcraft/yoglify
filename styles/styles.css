@@ -108,6 +108,9 @@ blockquote {
   margin-bottom: 1em;
 }
 
+p {
+  text-align: justify;
+}
 code,
 pre {
   font-family: var(--fixed-font-family);
@@ -192,8 +195,8 @@ main img {
 
 .icon {
   display: inline-block;
-  height: 24px;
-  width: 24px;
+  height: 48px;
+  width: 48px;
 }
 
 .icon img {
@@ -204,6 +207,13 @@ main img {
 /* sections */
 main .section {
   padding: 64px 16px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+main .section.full-width {
+  padding: 0;
+  max-width: 100%;
 }
 
 @media (width >= 600px) {
@@ -214,7 +224,6 @@ main .section {
 
 @media (width >= 900px) {
   .section > div {
-    max-width: 1200px;
     margin: auto;
   }
 }
