@@ -55,6 +55,35 @@ function buildAutoBlocks(main) {
   }
 }
 
+function replaceRazorpayTextWithForm() {
+  // Get all the <p> elements in the document
+  const pElements = document.querySelectorAll('p');
+
+  // Loop through each <p> element
+  pElements.forEach(p => {
+    // Check if the text content of the <p> element contains '//razorpay//'
+    if (p.textContent.includes('//razorpay//')) {
+      // Create a form element
+      const form = document.createElement('form');
+
+      // Create a script element with Razorpay payment button attributes
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+      script.setAttribute('data-payment_button_id', 'pl_OzoTgGZpmiXQCz');
+      script.async = true;
+
+      // Append the script to the form
+      form.appendChild(script);
+
+      // Replace the <p> element with the form
+      p.replaceWith(form);
+    }
+  });
+}
+
+// Call the function to replace the paragraphs
+replaceRazorpayTextWithForm();
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -63,6 +92,7 @@ function buildAutoBlocks(main) {
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
+  replaceRazorpayTextWithForm();
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
