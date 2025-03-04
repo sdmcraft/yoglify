@@ -199,6 +199,12 @@ main img {
   width: 48px;
 }
 
+.icon.icon-tick {
+  height: 24px;
+  width: 24px;
+  padding: 4px;
+}
+
 .icon img {
   height: 100%;
   width: 100%;
